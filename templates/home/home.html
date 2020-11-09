@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %} Home - Adverse {% endblock title %}
+{% block css %}
+
+        .web-button {
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .web-button .btn {
+            margin: 10px;
+        }
+
+        .register {
+            display: flex;
+            margin: 30px;
+            justify-content: center;
+        }
+
+        .register-info {
+            display: flex;
+            justify-content: center;
+        }
+
+        div .neunbtn{
+            display: block;
+            width: 400px;
+            margin: 0 auto 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 30vh;
+        }
+
+        .btn-lg {
+            display: block;
+            cursor: pointer;
+            /* outline: none; */
+            /* border: none; */
+            background-color: var(--light);
+            width: 400px;
+            height: 70px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            background-size: 100% 100%;
+            box-shadow: 0 0 0 7px var(--light) inset;
+            margin-bottom: 15px;
+        }
+
+        a, a:hover, a:focus, a:active { /* This will stop changing color because of anchor tag */
+            text-decoration: none;
+            color: inherit;
+        } 
+{% endblock css %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<div class="web-button">
+  <button type="button" class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#postAdsModal">Post
+        Ads!</button>
+    <button type="button" class="btn btn-outline-info btn-lg"><a href="classified/">Explore Ads</a></button>
+</div>
+
+{% else %}
+<div class="web-button">
+    <button type="button" class="btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#signinModal">Log
+        In</button>
+  </div>
+<div class="register">
+    <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal"
+        data-target="#registermodal">Register Here!</button>
+</div>
+<div class="register-info">
+    <p>don't have Account? Register Here</p>
+</div>
+{% endif %}
+
+{% endblock body %}
+
+{% block js %}
+
+
+{% endblock js %}
